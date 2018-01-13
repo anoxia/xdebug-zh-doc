@@ -2,25 +2,26 @@
 
 ### 相关设置参数
 
-**xdebug.default_enable**
+#### xdebug.default_enable
+
 类型：boolean，默认值：1
 参数设置为1时，在错误事件中会显示堆栈跟踪信息。您可以使用`xdebug_disable()`来禁用显示你的代码的栈跟踪。由于这是Xdebug的基本功能之一，建议将此设置设置为1。
 
-**xdebug.force_display_errors**
+#### xdebug.force_display_errors
 
 > 该功能仅适用于`Xdebug> = 2.3`
 
 类型：int，默认值：0，
 如果该参数被设置为1，那么总是会显示错误 ，不管PHP的display_errors 是什么设置。
 
-**xdebug.force_error_reporting**
+#### xdebug.force_error_reporting
 
 > 该功能仅适用于`Xdebug> = 2.3`
 
 类型：int，默认值：0，
 这个参数的设置是一个位掩码，就像error_reporting。该位掩码将与由error_reporting表示的位掩码**进行逻辑“或”运算**，从而确定应显示哪些错误。此设置只能在php.ini中进行，无论应用程序使用`ini_set()`设置何值，都会强制显示某些错误。
 
-**xdebug.halt_level**
+#### xdebug.halt_level
 
 > 该功能仅适用于`Xdebug> = 2.3`
 
@@ -45,19 +46,21 @@ xdebug.halt_level = E_WARNING | E_NOTICE | E_USER_WARNING | E_USER_NOTICE
 
 位掩码只支持上面提到的四个级别。
 
-**xdebug.max_nesting_level**
+#### xdebug.max_nesting_level
+
 类型：int，默认值：256
 控制无限递归保护的保护机制。此设置的值是在脚本中止之前所允许的嵌套函数的最大级别。
 
 在Xdebug 2.3之前，默认值是100。
 
-**xdebug.max_stack_frames**
+#### xdebug.max_stack_frames
+
 > 该功能仅适用于Xdebug> = 2.3
 
 类型：int，默认值：-1。
 控制堆栈跟踪中显示的堆栈帧的数量，包括PHP错误堆栈跟踪期间的命令行以及HTML跟踪的浏览器。
 
-**xdebug.scream**
+#### xdebug.scream
 
 > 该功能仅适用于`Xdebug> = 2.1`
 
@@ -66,7 +69,7 @@ xdebug.halt_level = E_WARNING | E_NOTICE | E_USER_WARNING | E_USER_NOTICE
 
 ### 相关函数
 
-**string xdebug_call_class()[int $ depth = 1])**
+#### string xdebug_call_class()[int $ depth = 1])
 
 正常情况返回调用类，如果堆栈帧不存在返回`NULL`，堆栈帧没有类信息返回`FALSE`
 
@@ -210,7 +213,7 @@ $ret = Strings::fix_strings( [ 'Derick' ] );
 ::xdebug_call_function is called at /home/httpd/html/test/xdebug_caller:13
 ```
 
-**string xdebug_call_file( [int $depth = 1] )**
+#### string xdebug_call_file( [int $depth = 1] )
 
 返回调用文件，如果堆栈帧不存在返回`NULL`
 
@@ -220,7 +223,7 @@ $ret = Strings::fix_strings( [ 'Derick' ] );
 
 有关示例和更广泛的信息，请参见`xdebug_call_class()`
 
-**string xdebug_call_function( [int $depth = 1] )**
+#### string xdebug_call_function( [int $depth = 1] )
 
 如果堆栈帧不存在返回`NULL`，如果堆栈帧没有函数/方法信息返回`FALSE`。
 
@@ -230,7 +233,7 @@ $ret = Strings::fix_strings( [ 'Derick' ] );
 
 有关示例和更广泛的信息，请参见`xdebug_call_class()`
 
-**int xdebug_call_line( [int $depth = 1] )**
+#### int xdebug_call_line( [int $depth = 1] )
 
 返回改函数调用所在行号，如果堆栈帧不存在返回`NULL`。
 
@@ -240,19 +243,19 @@ $ret = Strings::fix_strings( [ 'Derick' ] );
 
 有关示例和更广泛的信息，请参见`xdebug_call_class()`
 
-**void xdebug_disable()**
+#### void xdebug_disable()
 
 禁用堆栈跟踪
 
 禁止在错误情况下显示堆栈跟踪。
 
-**void xdebug_enable()**
+#### void xdebug_enable()
 
 启用堆栈跟踪
 
 在错误情况下启用显示堆栈跟踪。
 
-**string xdebug_get_collected_errors( [int clean] )**
+#### string xdebug_get_collected_errors( [int clean] )
 
 > 该功能仅适用于`Xdebug> = 2.1`
 
@@ -264,7 +267,7 @@ $ret = Strings::fix_strings( [ 'Derick' ] );
 
 此函数返回一个字符串，其中包含格式化为“Xdebug table”的所有收集的错误。
 
-**array xdebug_get_headers()**
+#### array xdebug_get_headers()
 
 > 该功能仅适用于`Xdebug> = 2.1`
 
@@ -293,25 +296,25 @@ array(2) {
 }
 ```
 
-**bool xdebug_is_enabled()**
+#### bool xdebug_is_enabled()
 
 返回是否启用堆栈跟踪
 
 返回是否在出现错误时显示堆栈轨迹。
 
-**int xdebug_memory_usage()**
+#### int xdebug_memory_usage()
 
 返回当前的内存使用情况
 
 返回脚本使用的当前内存量。在PHP 5.2.1之前，这只有在使用`--enable-memory-limit`进行编译时才有效。从5.2.1版本开始，这个函数总是可用的。
 
-**int xdebug_peak_memory_usage()**
+#### int xdebug_peak_memory_usage()
 
 返回峰值内存使用情况
 
 返回脚本直到现在使用的最大内存量。在PHP 5.2.1之前，这只有在使用`--enable-memory-limit`进行编译时才有效。从5.2.1版本开始，这个函数总是可用的。
 
-**void xdebug_start_error_collection()**
+#### void xdebug_start_error_collection()
 
 开始记录所有的通知，警告和错误，并阻止他们的显示。该功能仅适用于`Xdebug> = 2.1`
 
@@ -319,13 +322,13 @@ array(2) {
 
 这个缓冲区的内容可以通过调用`xdebug_get_collected_errors()`来获取 ，然后显示。如果你想防止Xdebug强大的错误报告功能破坏你的布局，这是非常有用的。
 
-**void xdebug_stop_error_collection()**
+#### void xdebug_stop_error_collection()
 
 停止记录由`xdebug_start_error_collection()`启动的所有通知，警告和错误。该功能仅适用于`Xdebug> = 2.1`
 
 执行此函数时，由`xdebug_start_error_collection()`启动的错误收集将 被中止。存储在收集缓冲区中的错误不会被删除，仍然可以通过`xdebug_get_collected_errors()`获取 。
 
-**float xdebug_time_index()**
+#### float xdebug_time_index()
 
 返回当前时间索引
 
