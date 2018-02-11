@@ -35,23 +35,23 @@ foo( $a );
 
 >  xdebug.collect_params：默认值
 
-![img](images/StackTraces/6.png)
+![img](https://raw.githubusercontent.com/Anoxia/xdebug-zh-doc/master/images/StackTraces/6.png)
 
 >  xdebug.collect_params：1
 
-![img](images/StackTraces/7.png)
+![img](https://raw.githubusercontent.com/Anoxia/xdebug-zh-doc/master/images/StackTraces/7.png)
 
 >  xdebug.collect_params：2
 
-![img](images/StackTraces/8.png)
+![img](https://raw.githubusercontent.com/Anoxia/xdebug-zh-doc/master/images/StackTraces/8.png)
 
 >  xdebug.collect_params：3
 
-![img](images/StackTraces/9.png)
+![img](https://raw.githubusercontent.com/Anoxia/xdebug-zh-doc/master/images/StackTraces/9.png)
 
 >  xdebug.collect_params：4
 
-![img](images/StackTraces/10.png)
+![img](https://raw.githubusercontent.com/Anoxia/xdebug-zh-doc/master/images/StackTraces/10.png)
 
 ## 附加信息
 
@@ -59,7 +59,7 @@ foo( $a );
 
 **默认**
 
-![img](images/StackTraces/1.png)
+![img](https://raw.githubusercontent.com/Anoxia/xdebug-zh-doc/master/images/StackTraces/1.png)
 
 ```php
 ini_set('xdebug.collect_vars', 'on');
@@ -69,7 +69,7 @@ ini_set('xdebug.dump.SERVER', 'REQUEST_URI');
 ini_set('xdebug.show_local_vars', 'on');
 ```
 
-![img](images/StackTraces/2.png)
+![img](https://raw.githubusercontent.com/Anoxia/xdebug-zh-doc/master/images/StackTraces/2.png)
 
 **dump_superglobals=1**
 
@@ -80,7 +80,7 @@ ini_set('xdebug.dump_globals', 'on');
 ini_set('xdebug.dump.SERVER', 'REQUEST_URI');
 ```
 
-![img](images/StackTraces/3.png)
+![img](https://raw.githubusercontent.com/Anoxia/xdebug-zh-doc/master/images/StackTraces/3.png)
 
 ```php
 ini_set('xdebug.collect_vars', 'on');
@@ -90,7 +90,7 @@ ini_set('xdebug.dump.SERVER', 'REQUEST_URI');
 ini_set('xdebug.show_local_vars', 'on');
 ```
 
-![img](images/StackTraces/4.png)
+![img](https://raw.githubusercontent.com/Anoxia/xdebug-zh-doc/master/images/StackTraces/4.png)
 
 **show_local_vars=1**
 
@@ -102,7 +102,7 @@ ini_set('xdebug.dump.SERVER', 'REQUEST_URI');
 ini_set('xdebug.show_local_vars', 'on');
 ```
 
-![img](images/StackTraces/5.png)
+![img](https://raw.githubusercontent.com/Anoxia/xdebug-zh-doc/master/images/StackTraces/5.png)
 
 ## 过滤
 
@@ -532,7 +532,7 @@ foo( 42, 3141592654 );
 
 **Result**
 
-![img](images/StackTraces/11.png)
+![img](https://raw.githubusercontent.com/Anoxia/xdebug-zh-doc/master/images/StackTraces/11.png)
 
 位掩码`“options”`允许您配置一些额外的选项。目前支持以下选项：
 
