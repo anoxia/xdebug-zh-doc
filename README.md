@@ -1,25 +1,26 @@
 # xdebug中文文档
 
-文档内容来自`xdebug.org/docs`，翻译时xdebug版本为`2.6`。我在官方文档基础上针对中文排版和教程内容的编排做了一些优化，希望使得中文文档看起来更容易理解。
+文档内容来自`xdebug.org/docs`，翻译时xdebug版本为`2.6`。我在官方文档基础上针对中文排版和教程内容的编排做了一些优化，希望中文文档看起来更容易理解。
 
-英文文档连接：https://xdebug.org/docs/
+> 英文原始文档地址：https://xdebug.org/docs/
+> 中文文档github地址：https://github.com/Anoxia/xdebug-zh-doc
 
 ## 目录
 
-* [安装](Installation.md)
+* [安装]()
 
   本节介绍各个操作系统下如何安装Xdebug。
 
 
-* [基础特性](BasicFeatures.md)
+* [基础特性]()
 
   本节介绍Xdebug的基本功能，包括在错误条件下显示堆栈轨迹、最大嵌套级别保护和时间跟踪。
 
-* [变量打印特性](VariableDisplayFeatures.md)
+* [变量打印特性]()
 
   本节介绍Xdebug替换了PHP的`var_dump()`函数来打印变量。Xdebug的版本包含不同类型的不同颜色，并限制数组元素/对象属性的数量，最大深度和字符串长度。还有一些其他功能处理变量显示。
 
-* [堆栈跟踪](StackTraces.md)
+* [堆栈跟踪]()
 
   本节介绍当Xdebug被激活时，只要PHP决定显示通知，警告，错误等，就会显示堆栈跟踪。堆栈跟踪显示的信息以及显示方式可以根据您的需要进行配置。
 
