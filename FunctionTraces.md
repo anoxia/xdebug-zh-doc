@@ -176,7 +176,7 @@ TRACE START [2007-05-06 14:37:35]
 TRACE END   [2007-05-06 14:37:35]
 ```
 
-所有函数调用的返回值也是可见的。
+所有函数调用的返回值也是可见的，这个需要打开打开[xdebug.collect_return](https://xdebug.org/docs/all_settings#collect_return)设置。
 
 **输出（trace_format=1）：**
 
@@ -215,3 +215,77 @@ TRACE END   [2007-05-06 18:29:01]
 ```
 
 最后一个标签显示了一个不同的输出格式，它更容易解析，但难以阅读。该[xdebug.trace_format](https://xdebug.org/docs/all_settings#trace_format)因此设置主要是对分析工具有用的。
+
+## VIM语法文件
+
+Xdebug附带的VIM语法文件，支持突出显示跟踪文件：xt.vim。为了让VIM识别文件语法格式，您需要执行以下步骤：
+
+1. 将*xt.vim*文件复制到*〜/ .vim / syntax*
+
+2. 编辑或创建`～/vim/filetype.vim`并添加以下行：
+
+   ```vim
+   augroup filetypedetect
+   au BufNewFile,BufRead *.xt  setf xt
+   augroup END
+   ```
+
+使用这些设置打开一个Xdebug跟踪文件会出现如下所示：
+
+![img](https://raw.githubusercontent.com/Anoxia/xdebug-zh-doc/master/images/FunctionTraces/1.png)
+
+你也可以使用*zc*和*zo*折叠部分跟踪文件。
+
+## 相关设置
+
+#### xdebug.auto_trace
+
+类型：boolean，默认值：0
+
+当此设置设置为打开时，函数调用的跟踪将在脚本运行之前启用。这使得跟踪[auto_prepend_file中的](http://php.net/manual/en/ini.core.php#ini.auto-prepend-file)代码成为可能。
+
+#### xdebug.collect_assignments
+
+> 该功能仅适用于`Xdebug> = 2.1`
+
+类型：boolean，默认值：0
+
+这个默认为0的设置控制着Xdebug是否应该为函数追踪添加变量赋值。
+
+从Xdebug2.6起，包含`assign-by-var(=&)`赋值。
+
+#### xdebug.collect_includes
+
+类型：boolean，默认值：1
+
+此设置默认为1，它控制Xdebug是否应将`include()`，`include_once()`，`require()`或`require_once()`中使用的文件名写入跟踪文件。
+
+#### xdebug.collect_params
+
+类型：integer，默认值：1
+
+此设置默认为0，控制Xdebug是否应该在功能跟踪或堆栈跟踪中记录函数调用时传递给函数的参数。
+
+该设置默认为0，因为对于非常大的脚本，它可能会使用大量的内存，因此运行巨大的脚本可能会有一点点问题。大部分情况下您可以最安全地开启此设置，但是您可能会在具有大量函数调用和/或巨大数据结构作为参数的脚本中遇到一些问题。Xdebug2不存在该问题，不会因增加内存使用而产生这个问题，因为它永远不会将这些信息存储在内存中。相反，它只会写入磁盘。这意味着您需要查看磁盘使用情况。
+
+该设置可以有四个不同的值。对于每个值，都会显示不同的信息量。下面你会看到每个值提供的信息。有关一些屏幕截图，另请参阅[堆栈跟踪](https://xdebug.org/docs/stack_trace)功能的介绍 。
+
+| 值   | 参数信息如图所示                                             |
+| ---- | ------------------------------------------------------------ |
+| 0    | 没有。                                                       |
+| 1    | 元素的类型和数量 (f.e. string(6), array(8))。                |
+| 2    | 元素的类型和数量，以及提供完整信息的工具提示。               |
+| 3    | 完全可变的内容（限制由[xdebug.var_display_max_children](https://xdebug.org/docs/all_settings#var_display_max_children)，[xdebug.var_display_max_data](https://xdebug.org/docs/all_settings#var_display_max_data)和[xdebug.var_display_max_depth](https://xdebug.org/docs/all_settings#var_display_max_depth)设置）。 |
+| 4    | 全变量内容和变量名称。                                       |
+| 5    | PHP序列化变量的内容，没有名字。*（Xdebug 2.3中的新功能）*    |
+
+_注：_在CLI版本的PHP中不会有工具提示，也不会出现在输出文件中。
+
+#### xdebug.collect_return
+
+类型：boolean，默认值：0
+
+这个默认为0的设置控制Xdebug是否应该将函数调用的返回值写入跟踪文件。
+
+对于计算机化的跟踪文件（[xdebug.trace_format](https://xdebug.org/docs/all_settings#trace_format) = 1），从Xdebug 2.3起可用。
+
